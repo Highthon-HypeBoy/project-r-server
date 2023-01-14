@@ -1,16 +1,18 @@
 package com.example.projectrserver.domain.routine.domain;
 
-import com.example.projectrserver.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Table(name = "tbl_routine")
-public class Routine {
+@Table(name = "tbl_info")
+public class RoutineInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -19,12 +21,12 @@ public class Routine {
     private String title;
 
     @Column
-    private String content;
+    private String startTime;
 
     @Column
-    private String intro;
+    private String lastTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "routine_id", nullable = false)
+    private Routine routine;
 }
