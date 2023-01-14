@@ -9,7 +9,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-
+// 디자인 나오는 것 마다 api 명세
+// api 명세 나온거 다
 @RequiredArgsConstructor
 @Configuration
 public class SecurityConfig {
@@ -27,7 +28,7 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http
-                .authorizeRequests()
+                .authorizeHttpRequests()
 
                 .requestMatchers(HttpMethod.GET, "/login/oauth2/code/naver").permitAll()
 
