@@ -19,15 +19,8 @@ public class SignInService {
 
     @Transactional
     public TokenResponse signIn(SignUpDto request) {
-
-        if(userRepository.findByName(request.getName()).isPresent()) {
-            throw UserConflictException.EXCEPTION;
-        }
-        User user = userRepository.save(
-                User.builder()
-                        .name(request.getName())
-                        .build()
-        );
+        User user = userRepository.findByName(request.getName())
+                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
 
         return TokenResponse.builder()
                 .accessToken(jwtTokenProvider.generateAccessToken(user.getName()))

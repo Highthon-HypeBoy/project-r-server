@@ -21,10 +21,10 @@ public class RoutineInfo {
     private String title;
 
     @Column
-    private String startTime;
+    private LocalTime startTime;
 
     @Column
-    private String lastTime;
+    private LocalTime lastTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "routine_id", nullable = false)

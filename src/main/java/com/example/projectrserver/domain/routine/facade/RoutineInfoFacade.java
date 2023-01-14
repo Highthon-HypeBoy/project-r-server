@@ -8,6 +8,7 @@ import com.example.projectrserver.domain.routine.present.dto.RoutineTimeResponse
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -17,8 +18,8 @@ public class RoutineInfoFacade {
     private final RoutineRepository routineRepository;
 
     public RoutineTimeResponse getTime(Routine routine) {
-        String start = routineInfoRepository.findAllByRoutine(routine).get(0).getStartTime();
-        String last = routineInfoRepository.findAllByRoutine(routine).get(routineInfoRepository.findAllByRoutine(routine).size()-1).getLastTime();
+        LocalTime start = routineInfoRepository.findAllByRoutine(routine).get(0).getStartTime();
+        LocalTime last = routineInfoRepository.findAllByRoutine(routine).get(routineInfoRepository.findAllByRoutine(routine).size()-1).getLastTime();
 
         return RoutineTimeResponse.builder()
                 .startTime(start)

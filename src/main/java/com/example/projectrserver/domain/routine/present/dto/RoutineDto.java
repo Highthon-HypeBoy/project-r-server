@@ -3,6 +3,7 @@ package com.example.projectrserver.domain.routine.present.dto;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -22,10 +23,10 @@ public class RoutineDto {
     @Builder
     public static class RoutineList {
         private String title;
-        private String startTime;
-        private String lastTime;
+        private LocalTime startTime;
+        private LocalTime lastTime;
 
-        public RoutineList(String title, String startTime, String lastTime) {
+        public RoutineList(String title, LocalTime startTime, LocalTime lastTime) {
             this.title = title;
             this.startTime = startTime;
             this.lastTime = lastTime;

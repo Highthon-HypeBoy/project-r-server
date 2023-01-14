@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.time.LocalTime;
 import java.util.List;
 
 @Getter
@@ -21,7 +22,7 @@ public class RoutineListDto {
         private List<String> tags;
         private String writer;
         private Integer likes;
-        private String startTime;
-        private String lastTime;
+        private LocalTime startTime;
+        private LocalTime lastTime;
     }
 }
