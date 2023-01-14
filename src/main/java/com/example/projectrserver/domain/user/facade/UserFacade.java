@@ -18,4 +18,9 @@ public class UserFacade {
         return userRepository.findByName(name)
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
+
+    public User getUserById(Integer id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
+    }
 }

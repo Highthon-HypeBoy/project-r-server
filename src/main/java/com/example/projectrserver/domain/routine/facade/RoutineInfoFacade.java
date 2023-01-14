@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalTime;
-import java.util.List;
 
 @RequiredArgsConstructor
 @Component
