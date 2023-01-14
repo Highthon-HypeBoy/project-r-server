@@ -24,5 +24,7 @@ public class RoutineListDto {
         private Integer likes;
         private LocalTime startTime;
         private LocalTime lastTime;
+
+        private Boolean isLike;
     }
 }
