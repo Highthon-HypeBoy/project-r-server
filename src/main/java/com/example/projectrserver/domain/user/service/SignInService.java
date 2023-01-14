@@ -2,6 +2,8 @@ package com.example.projectrserver.domain.user.service;
 
 import com.example.projectrserver.domain.user.domain.User;
 import com.example.projectrserver.domain.user.domain.repository.UserRepository;
+import com.example.projectrserver.domain.user.exception.UserConflictException;
+import com.example.projectrserver.domain.user.exception.UserNotFoundException;
 import com.example.projectrserver.domain.user.present.dto.SignUpDto;
 import com.example.projectrserver.domain.user.present.dto.TokenResponse;
 import com.example.projectrserver.global.security.jwt.JwtTokenProvider;
@@ -17,6 +19,10 @@ public class SignInService {
 
     @Transactional
     public TokenResponse signIn(SignUpDto request) {
+
+        if(userRepository.findByName(request.getName()).isPresent()) {
+            throw UserConflictException.EXCEPTION;
+        }
         User user = userRepository.save(
                 User.builder()
                         .name(request.getName())
