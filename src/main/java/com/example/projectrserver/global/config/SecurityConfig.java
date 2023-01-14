@@ -9,8 +9,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-// 디자인 나오는 것 마다 api 명세
-// api 명세 나온거 다
+
 @RequiredArgsConstructor
 @Configuration
 public class SecurityConfig {
@@ -30,7 +29,13 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests()
 
-                .requestMatchers(HttpMethod.GET, "/login/oauth2/code/naver").permitAll()
+                .requestMatchers(HttpMethod.POST, "/v1/accounts").permitAll()
+                .requestMatchers(HttpMethod.POST, "/v1/accounts/sign").permitAll()
+
+                .requestMatchers(HttpMethod.POST, "/v1/routines/like/{id}").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/v1/routines/like/{id}").authenticated()
+
+                .requestMatchers(HttpMethod.POST, "/v1/routines").authenticated()
 
                 .anyRequest().authenticated()
                 .and()
