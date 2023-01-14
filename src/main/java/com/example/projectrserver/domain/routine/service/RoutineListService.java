@@ -1,5 +1,6 @@
 package com.example.projectrserver.domain.routine.service;
 
+import com.example.projectrserver.domain.like.domain.facade.LikeFacade;
 import com.example.projectrserver.domain.routine.domain.repository.RoutineRepository;
 import com.example.projectrserver.domain.routine.facade.RoutineInfoFacade;
 import com.example.projectrserver.domain.routine.present.dto.RoutineListDto;
@@ -17,6 +18,7 @@ public class RoutineListService {
     private final RoutineRepository routineRepository;
     private final TagFacade tagFacade;
     private final RoutineInfoFacade routineInfoFacade;
+    private final LikeFacade likeFacade;
 
     @Transactional
     public RoutineListDto RoutineList() {
@@ -29,6 +31,7 @@ public class RoutineListService {
                         .tags(tagFacade.getTagList(routine))
                         .content(routine.getContent())
                         .writer(routine.getUser().getName())
+                        .likes(likeFacade.getLikes(routine))
                         .startTime(routineInfoFacade.getTime(routine).getStartTime())
                         .lastTime(routineInfoFacade.getTime(routine).getLastTime())
                         .build())

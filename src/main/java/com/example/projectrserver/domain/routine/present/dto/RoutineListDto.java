@@ -20,6 +20,7 @@ public class RoutineListDto {
         private String content;
         private List<String> tags;
         private String writer;
+        private Integer likes;
         private String startTime;
         private String lastTime;
     }

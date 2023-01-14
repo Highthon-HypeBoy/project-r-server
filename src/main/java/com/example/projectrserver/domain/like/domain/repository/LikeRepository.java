@@ -9,4 +9,6 @@ import java.util.Optional;
 
 public interface LikeRepository extends CrudRepository<Like, Integer> {
     Optional<Like> findByUserAndRoutine(User user, Routine routine);
+
+    Integer countLikeByRoutine(Routine routine);
 }
