@@ -7,7 +7,6 @@ import com.example.projectrserver.domain.user.service.MyPageService;
 import com.example.projectrserver.domain.user.service.SignInService;
 import com.example.projectrserver.domain.user.service.SignUpService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -27,7 +26,7 @@ public class UserController {
     public TokenResponse signIn(@RequestBody SignUpDto request) {
         return signInService.signIn(request);
     }
-    
+
     @GetMapping
     public RoutineListDto myPage() {
         return myPageService.getMyRoutine();

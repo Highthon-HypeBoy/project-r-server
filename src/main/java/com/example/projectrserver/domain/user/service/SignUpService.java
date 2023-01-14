@@ -20,7 +20,7 @@ public class SignUpService {
     @Transactional
     public TokenResponse signup(SignUpDto request) {
 
-        if(userRepository.findByName(request.getName()).isPresent()) {
+        if (userRepository.findByName(request.getName()).isPresent()) {
             throw UserConflictException.EXCEPTION;
         }
 

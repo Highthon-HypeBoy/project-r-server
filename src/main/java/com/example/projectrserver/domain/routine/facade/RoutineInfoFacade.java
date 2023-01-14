@@ -18,7 +18,7 @@ public class RoutineInfoFacade {
 
     public RoutineTimeResponse getTime(Routine routine) {
         LocalTime start = routineInfoRepository.findAllByRoutine(routine).get(0).getStartTime();
-        LocalTime last = routineInfoRepository.findAllByRoutine(routine).get(routineInfoRepository.findAllByRoutine(routine).size()-1).getLastTime();
+        LocalTime last = routineInfoRepository.findAllByRoutine(routine).get(routineInfoRepository.findAllByRoutine(routine).size() - 1).getLastTime();
 
         return RoutineTimeResponse.builder()
                 .startTime(start)

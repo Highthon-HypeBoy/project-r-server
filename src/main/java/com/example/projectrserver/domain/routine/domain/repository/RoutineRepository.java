@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface RoutineRepository extends CrudRepository<Routine, Integer> {
     Optional<Routine> findById(Integer id);
+
     List<Routine> findAll();
 
     List<Routine> findAllByUser(User user);

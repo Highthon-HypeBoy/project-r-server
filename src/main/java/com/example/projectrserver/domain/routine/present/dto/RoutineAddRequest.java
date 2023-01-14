@@ -33,5 +33,4 @@ public class RoutineAddRequest {
             this.lastTime = lastTime;
         }
     }
-
 }

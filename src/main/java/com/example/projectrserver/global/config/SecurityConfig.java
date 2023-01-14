@@ -25,17 +25,19 @@ public class SecurityConfig {
                 .csrf().disable()
                 .formLogin().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
         http
                 .authorizeHttpRequests()
 
                 .requestMatchers(HttpMethod.POST, "/v1/accounts").permitAll()
                 .requestMatchers(HttpMethod.POST, "/v1/accounts/sign").permitAll()
+                .requestMatchers(HttpMethod.GET, "/v1/accounts").authenticated()
 
                 .requestMatchers(HttpMethod.POST, "/v1/routines/like/{id}").authenticated()
                 .requestMatchers(HttpMethod.DELETE, "/v1/routines/like/{id}").authenticated()
 
                 .requestMatchers(HttpMethod.POST, "/v1/routines").authenticated()
+                .requestMatchers(HttpMethod.GET, "/v1/routines").authenticated()
+                .requestMatchers(HttpMethod.GET, "/v1/routines{id}").authenticated()
 
                 .anyRequest().authenticated()
                 .and()

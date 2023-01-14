@@ -45,7 +45,7 @@ public class LikeService {
         Routine routine = routineRepository.findById(id)
                 .orElseThrow(() -> RoutineNotFoundException.EXCEPTION);
 
-        if(likeRepository.findByUserAndRoutine(user, routine).isPresent()) {
+        if (likeRepository.findByUserAndRoutine(user, routine).isPresent()) {
             Like like = likeRepository.findByUserAndRoutine(user, routine)
                     .orElseThrow(() -> RoutineNotFoundException.EXCEPTION);
             likeRepository.delete(like);
